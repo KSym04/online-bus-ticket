@@ -30,28 +30,36 @@
 					</div><!-- .contact-info -->
 
 					<div class="login">
-						<a href="#">Login</a>
-						<div id="login-box">
-							<form method="post">
-								<div class="form-row">
-									<label for="email">Email</label>
-									<input id="email" type="text" name="user_email" />
-								</div>
+						<?php if( isset( $_COOKIE['user_logged_in'] ) ) : ?>
+							<a href="#">Hello <?php echo $_COOKIE['user_fname']; ?></a>
+							<div id="login-box">
+								<a class="logged-in-link" href="<?php echo BASE_URL; ?>dashboard.php">Dashboard</a><br />
+								<a class="logged-in-link" href="<?php echo BASE_URL; ?>logout.php">Logout</a>
+							</div>
+						<?php else : ?>
+							<a href="#">Login</a>
+							<div id="login-box">
+								<form method="post" action="<?php echo BASE_URL; ?>login.php">
+									<div class="form-row">
+										<label for="email">Username</label>
+										<input id="username" type="text" name="user_name" />
+									</div>
 
-								<div class="form-row">
-									<label for="password">Password</label>
-									<input id="password" type="password" name="user_password" />
-								</div>
+									<div class="form-row">
+										<label for="password">Password</label>
+										<input id="password" type="password" name="user_password" />
+									</div>
 
-								<div class="form-row">
-									<input type="submit" value="Login" />
-								</div>
+									<div class="form-row">
+									<input type="submit" name="submit" value="Login" />
+									</div>
 
-								<div class="form-row">
-									<a class="register" href="<?php echo BASE_URL; ?>register.php">Register an Account</a>
-								</div>
-							</form>
-						</div>
+									<div class="form-row">
+										<a class="register" href="<?php echo BASE_URL; ?>register.php">Register an Account</a>
+									</div>
+								</form>
+							</div>
+						<?php endif; ?>
 					</div><!-- .login -->
 
 				</div>
