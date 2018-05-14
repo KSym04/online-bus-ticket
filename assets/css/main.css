@@ -86,12 +86,27 @@ textarea {
    Main CSS
    ========================================================================== */
 
+html, body {
+	height: 100%;
+}
+
 body {
 	font-family: 'Lato', sans-serif;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+#page {
+	min-height: 100%;
+	margin-bottom: -105px;
+}
+
+#page:after {
+	content: "";
+	display: block;
 }
 
 img {
@@ -181,7 +196,27 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 }
 
+#login-box .register {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+#login-box .register:hover {
+    text-decoration: underline;
+}
+
+#login-box .logged-in-link {
+    color: #ffffff;
+}
+
+#login-box .logged-in-link:hover {
+    text-decoration: none;
+}
+
 .header-inner-bottom {
+    background-color: #ffffff;
     height: 105px;
     padding: 25px 0;
 }
@@ -200,6 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .menu ul {
+    padding-top: 16px;
     padding-left: 0;
     list-style-type: none;
     font-family: 'Montserrat', sans-serif;
@@ -264,6 +300,247 @@ h1, h2, h3, h4, h5, h6 {
     width: 623px;
     height: 121px;
 }
+
+/* registration */
+
+.register #page,
+.book-ticket #page,
+.login-page #page {
+	background-color: #f5f5f5;
+}
+
+.registration-wrap,
+.book-ticket-wrap,
+.login-page-wrap {
+    padding: 20px 0;
+	height: 100%;
+    text-align: center;
+}
+
+.book-ticket-wrap {
+    margin-bottom: 105px;
+}
+
+.registration-inner h1,
+.book-ticket-inner h1,
+.login-page-inner h1 {
+    font-size: 28px;
+    margin: 40px auto 50px;
+}
+
+.registration-form,
+.book-ticket-form,
+.login-page-form {
+    width: 500px;
+    margin: 0 auto 40px;
+    padding: 25px 30px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.08);
+}
+
+.book-ticket-form {
+    width: 600px;
+}
+
+.registration-form .form-row,
+.login-page-form .form-row {
+    padding: 5px 0;
+}
+
+.registration-form .form-row.half,
+.login-page-form .form-row.half {
+    overflow: hidden;
+    width: 100%;
+}
+
+.registration-form .half > .col,
+.login-page-form .half > .col {
+    width: 50%;
+    padding: 0 0;
+    float: left;
+}
+
+.registration-form .half > .col:first-child,
+.login-page-form .half > .col:first-child {
+    padding: 0 5px 0 0;
+}
+
+.registration-form .half > .col:last-child,
+.login-page-form .half > .col:last-child {
+    padding: 0 0 0 5px;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="password"],
+.registration-form input[type="email"],
+.login-page-form input[type="text"],
+.login-page-form input[type="password"],
+.login-page-form input[type="email"] {
+    width: 100%;
+    padding: 8px 15px;
+}
+
+.half .registration-form input[type="text"],
+.half .login-page-form input[type="text"] {
+    width: 40% !important;;
+}
+
+.registration-form input[type="submit"],
+.login-page-form input[type="submit"] {
+    padding: 8px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #30cd3b;
+    border: none;
+    color: #ffffff;
+}
+
+.registration-form input[type="submit"]:hover,
+.login-page-form input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+.error-message {
+	color: #ff0000;
+	font-size: 13px;
+}
+
+.success-message {
+	color: #32CD32;
+	font-size: 13px;
+}
+
+/* seat */
+
+#seat-list {
+    width: 273px;
+    float: left;
+}
+
+#seat-list h3 {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#seat-list ul {
+    width: 273px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 10px;
+    clear: both;
+    overflow: hidden;
+}
+
+#seat-list ul > li {
+    float: left;
+    display: block;
+    margin: 2px;
+}
+
+#seat-list ul > li:nth-child(2),
+#seat-list ul > li:nth-child(6),
+#seat-list ul > li:nth-child(10),
+#seat-list ul > li:nth-child(14),
+#seat-list ul > li:nth-child(18),
+#seat-list ul > li:nth-child(22),
+#seat-list ul > li:nth-child(26) {
+    margin-right: 29px;
+}
+
+#seat-list ul > li:nth-child(3),
+#seat-list ul > li:nth-child(7),
+#seat-list ul > li:nth-child(11),
+#seat-list ul > li:nth-child(15),
+#seat-list ul > li:nth-child(19),
+#seat-list ul > li:nth-child(23),
+#seat-list ul > li:nth-child(27) {
+    margin-left: 29px;
+}
+
+#seat-list ul > li button {
+    display: block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #e5e5e5;
+    border: 1px solid #c5c5c5;
+}
+
+#seat-list ul > li button.reserved {
+    color: #ffffff;
+    background-color: #1a2d57;
+    border: 1px solid #1a2d57;
+}
+
+#seat-list ul > li button:disabled {
+    cursor: auto;
+}
+
+#seat-list .legend-available,
+#seat-list .legend-reserved {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #e5e5e5;
+    border: 1px solid #c5c5c5;
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+}
+
+#seat-list .legend-reserved {
+    color: #ffffff;
+    background-color: #1a2d57;
+    border: 1px solid #1a2d57;
+    margin-left: 20px;
+}
+
+#seat-list p {
+    font-size: 13px;
+}
+
+#reservation-info {
+    padding-left: 20px;
+    float: left;
+    width: 260px;
+    font-size: 15px;
+}
+
+#reservation-info label {
+    display: block;
+}
+
+#reservation-info select {
+    margin: 10px auto 40px;
+    padding: 2px 5px;
+}
+
+#price {
+    display: block;
+    margin: 0 auto 40px;
+}
+
+#fare {
+    display: block;
+    margin: 10px auto 40px;
+}
+
+#book-now {
+    padding: 10px 20px;
+    background-color: #32CD32;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+#book-now:hover {
+    opacity: 0.8;
+}
+
+/* footer */
 
 .footer {
     height: 105px;
