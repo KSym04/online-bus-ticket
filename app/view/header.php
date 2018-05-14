@@ -42,7 +42,7 @@
 								<form method="post" action="<?php echo BASE_URL; ?>login.php">
 									<div class="form-row">
 										<label for="email">Username</label>
-										<input id="username" type="text" name="user_name" />
+										<input id="username" type="text" name="user_name" autocomplete="off" />
 									</div>
 
 									<div class="form-row">
