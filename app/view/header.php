@@ -46,6 +46,10 @@
 								<div class="form-row">
 									<input type="submit" value="Login" />
 								</div>
+
+								<div class="form-row">
+									<a class="register" href="<?php echo BASE_URL; ?>register.php">Register an Account</a>
+								</div>
 							</form>
 						</div>
 					</div><!-- .login -->
