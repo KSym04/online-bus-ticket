@@ -2,7 +2,7 @@
 /**
  * BASE URL
  */
-DEFINE('BASE_URL', 'http://rak.test/online-bus-ticket/');
+DEFINE('BASE_URL', 'http://localhost/online-bus-ticket/');
 
 // Database Host.
 $databaseHost = 'localhost';
