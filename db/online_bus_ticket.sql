@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2018 at 09:15 PM
+-- Generation Time: May 19, 2018 at 05:51 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -21,6 +21,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `online_bus_ticket`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `obt_booking`
+--
+
+CREATE TABLE `obt_booking` (
+  `ticket_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `book_date` date DEFAULT NULL,
+  `fare` int(11) NOT NULL,
+  `seat_num` varchar(120) NOT NULL,
+  `status` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `obt_booking`
+--
+
+INSERT INTO `obt_booking` (`ticket_id`, `user_id`, `book_date`, `fare`, `seat_num`, `status`) VALUES
+(114, 3, '2018-05-19', 560, 'S1,S2,S3,S4', 'Cancelled'),
+(115, 3, '2018-05-19', 560, 'S5,S6,S7,S8', 'On Hold'),
+(116, 3, '2018-05-19', 700, 'S29,S30,S31,S32,S33', 'Paid'),
+(117, 3, '2018-05-19', 280, 'S13,S14', 'On Hold'),
+(118, 3, '2018-05-19', 560, 'S1,S2,S3,S4', 'On Hold'),
+(119, 3, '2018-05-19', 560, 'S25,S26,S27,S28', 'On Hold');
 
 -- --------------------------------------------------------
 
@@ -52,6 +79,12 @@ INSERT INTO `obt_users` (`user_id`, `user_name`, `user_fname`, `user_lname`, `us
 --
 
 --
+-- Indexes for table `obt_booking`
+--
+ALTER TABLE `obt_booking`
+  ADD PRIMARY KEY (`ticket_id`);
+
+--
 -- Indexes for table `obt_users`
 --
 ALTER TABLE `obt_users`
@@ -60,6 +93,12 @@ ALTER TABLE `obt_users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `obt_booking`
+--
+ALTER TABLE `obt_booking`
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `obt_users`

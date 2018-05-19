@@ -18,8 +18,10 @@ if( !empty( $_COOKIE['user_id'] ) && !empty( $_POST['book_date'] ) && !empty( $_
 	// insert.
 	mysqli_query( $mysqli, "INSERT INTO obt_booking( user_id, book_date, fare, seat_num, status ) VALUES( $user_id, '$book_date', $fare, '$book_seats', 'On Hold' )");
 
-	// email order.
-
+	// email order and QR code logic below.
+	// ..................
+	// .. INSERT HERE ...
+	// ..................
 
 	// return message.
 	echo 'Successfully booked a ticket.';
