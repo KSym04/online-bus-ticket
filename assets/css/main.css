@@ -10,7 +10,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
+   html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
@@ -101,7 +101,6 @@ body {
 
 #page {
 	min-height: 100%;
-	margin-bottom: -105px;
 }
 
 #page:after {
@@ -215,6 +214,10 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
+#login-box br {
+    margin-bottom: 10px;
+}
+
 .header-inner-bottom {
     background-color: #ffffff;
     height: 105px;
@@ -304,12 +307,15 @@ h1, h2, h3, h4, h5, h6 {
 /* registration */
 
 .register #page,
+.dashboard #page,
 .book-ticket #page,
 .login-page #page {
 	background-color: #f5f5f5;
+	clear: both;
 }
 
 .registration-wrap,
+.dashboard-wrap,
 .book-ticket-wrap,
 .login-page-wrap {
     padding: 20px 0;
@@ -317,11 +323,8 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.book-ticket-wrap {
-    margin-bottom: 105px;
-}
-
 .registration-inner h1,
+.dashboard-inner h1,
 .book-ticket-inner h1,
 .login-page-inner h1 {
     font-size: 28px;
@@ -329,6 +332,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .registration-form,
+.dashboard-form,
 .book-ticket-form,
 .login-page-form {
     width: 500px;
@@ -338,6 +342,10 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #e5e5e5;
     border-radius: 2px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.08);
+}
+
+.dashboard-form {
+	width: 960px;
 }
 
 .book-ticket-form {
@@ -412,6 +420,53 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 13px;
 }
 
+.dashboard-form table {
+	width: 100%;
+	text-align: center;
+}
+
+.dashboard-form table td:nth-child(1) {
+	width: 15%;
+}
+
+.dashboard-form table td:nth-child(2) {
+	width: 20%;
+}
+
+.dashboard-form table td:nth-child(3) {
+	width: 15%;
+}
+
+.dashboard-form table td:nth-child(4) {
+	width: 25%;
+}
+
+.dashboard-form table td:nth-child(5) {
+	width: 10%;
+}
+
+.dashboard-form table td:nth-child(6) {
+	width: 10%;
+}
+
+.dashboard-form table thead {
+    background: #eeeeee;
+    padding: 5px 0;
+}
+
+.dashboard-form table td {
+    padding: 10px 0;
+}
+
+.btn-pay-now {
+    background: #eeeeee;
+    border: 1px solid #cccccc;
+    color: #777777;
+    display: inline-block;
+    padding: 3px 10px;
+    text-decoration: none;
+}
+
 /* seat */
 
 #seat-list {
@@ -469,6 +524,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #c5c5c5;
 }
 
+#seat-list ul > li button.notavailable,
 #seat-list ul > li button.reserved {
     color: #ffffff;
     background-color: #1a2d57;
@@ -528,16 +584,45 @@ h1, h2, h3, h4, h5, h6 {
     margin: 10px auto 40px;
 }
 
+#book-now-disable,
 #book-now {
     padding: 10px 20px;
     background-color: #32CD32;
     color: #ffffff;
     border: none;
     cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#book-now-disable {
+    background-color: #ff0000;
 }
 
 #book-now:hover {
     opacity: 0.8;
+}
+
+label[for="book_date"] {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#book_date {
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.warning-label {
+	color: #00aced;
+}
+
+.cancel-label {
+	color: #ff0000;
+}
+
+.success-label {
+	color: #32CD32;
 }
 
 /* footer */

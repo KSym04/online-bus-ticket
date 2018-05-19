@@ -25,6 +25,7 @@ if( !empty( $_POST['submit'] ) ) {
 		if( $result->num_rows > 0 ) {
 			$row_result = mysqli_fetch_assoc( $result );
 			setcookie( "user_logged_in", true, time() + 3600 );
+			setcookie( "user_id", $row_result['user_id'], time() + 3600 );
 			setcookie( "user_name", $row_result['user_name'], time() + 3600 );
 			setcookie( "user_fname", $row_result['user_fname'], time() + 3600 );
 			setcookie( "user_lname", $row_result['user_lname'], time() + 3600 );
@@ -32,6 +33,8 @@ if( !empty( $_POST['submit'] ) ) {
 			$error_message = '<div class="success-message">Successfully login, wait while we are redirecting you...</div>
 							  <meta http-equiv="refresh" content="3;url='.BASE_URL.'book-ticket.php">';
 
+		} else {
+			$error_message = '<div class="error-message">Login failed, please try again.</div>';
 		}
 
 	}
