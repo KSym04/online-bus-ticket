@@ -30,6 +30,7 @@ if( !empty( $_POST['submit'] ) ) {
 			setcookie( "user_fname", $row_result['user_fname'], time() + 3600 );
 			setcookie( "user_lname", $row_result['user_lname'], time() + 3600 );
 			setcookie( "user_email", $row_result['user_email'], time() + 3600 );
+			setcookie( "user_permission", $row_result['user_permission'], time() + 3600 );
 			$error_message = '<div class="success-message">Successfully login, wait while we are redirecting you...</div>
 							  <meta http-equiv="refresh" content="3;url='.BASE_URL.'book-ticket.php">';
 

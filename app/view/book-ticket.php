@@ -58,9 +58,13 @@ $error_message = '';
 						<label for="fare"><strong>Total Fare:</strong></label>
 						<div id="fare">-</div>
 
-						<?php if( isset( $_COOKIE['user_logged_in'] ) ) : ?>
-							<button id="book-now">Book Now</button>
-							<input type="hidden" name="user_id" value="<?php echo $_COOKIE['user_id']; ?>" />
+						<?php if( isset( $_COOKIE['user_logged_in'] ) && isset( $_COOKIE['user_permission'] ) ) : ?>
+							<?php if( $_COOKIE['user_permission'] == 0 ) : ?>
+								<button id="book-now">Book Now</button>
+								<input type="hidden" name="user_id" value="<?php echo $_COOKIE['user_id']; ?>" />
+							<?php else: ?>
+								<button id="book-now-disable" disabled>Hello admin! you cannot book.</button>
+							<?php endif;?>
 						<?php else: ?>
 							<button id="book-now-disable" disabled>Please Login To Book</button>
 						<?php endif; ?>

@@ -90,4 +90,24 @@ $(document).ready(function(){
 
 	});
 
+	// admin cancel
+	$('.btn-cancel-now').on( 'click', function(event){
+		event.preventDefault();
+		var bookID = $(this).attr('data-book-id');
+		console.log(bookID);
+		$.ajax({
+            type: "POST",
+            url: "cancel-booking.php",
+            data: "book_id=" + bookID,
+            success: function(data){
+				// resets
+				setTimeout(function(){
+					$('#status_id'+bookID).html('<span class="cancel-label">Cancelled</span>');
+					$('#payment_id'+bookID).html('<span class="cancel-label">Cancel</span>');
+					$('[data-book-id="'+bookID+'"]').parent('td').html('<span class="cancel-label">-</span>');
+				}, 1000 );
+			}
+        });
+	});
+
 });
