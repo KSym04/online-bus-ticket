@@ -29,10 +29,10 @@
 						$get_user_id = $_COOKIE['user_id'];
 
 						if( $_COOKIE['user_permission'] == 1 ) {
-							$user_reserved_seat = mysqli_query( $mysqli, "SELECT * FROM obt_booking" );
+							$user_reserved_seat = mysqli_query( $mysqli, "SELECT * FROM obt_booking ORDER BY book_date ASC" );
 							$pay_status = 'disabled';
 						} else {
-							$user_reserved_seat = mysqli_query( $mysqli, "SELECT * FROM obt_booking WHERE user_id = $get_user_id" );
+							$user_reserved_seat = mysqli_query( $mysqli, "SELECT * FROM obt_booking WHERE user_id = $get_user_id ORDER BY book_date ASC" );
 							$pay_status = '';
 						}
 						if( $user_reserved_seat->num_rows > 0 ) {

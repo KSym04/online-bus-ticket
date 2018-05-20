@@ -31,7 +31,7 @@ $(document).ready(function(){
 		})
 	}
 
-	$('#seat-list button:enabled').on( 'click', function(e){
+	$('#seat-list').on('click', 'button:enabled', function(){
 		$(this).addClass('reserved');
 		$('#fare').text( $('#seat-list .reserved').length * farePrice + ' PHP' ).digits();
 	});
@@ -54,7 +54,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: "POST",
-            url: "process-booking.php",
+            url: "ajax-process-booking.php",
             data: "book_seats=" + bookSeats + "&book_date=" + bookDate + "&fare=" + farePrice,
             success: function(data){
 				// resets
@@ -97,7 +97,7 @@ $(document).ready(function(){
 		console.log(bookID);
 		$.ajax({
             type: "POST",
-            url: "cancel-booking.php",
+            url: "ajax-cancel-booking.php",
             data: "book_id=" + bookID,
             success: function(data){
 				// resets
@@ -106,6 +106,37 @@ $(document).ready(function(){
 					$('#payment_id'+bookID).html('<span class="cancel-label">Cancel</span>');
 					$('[data-book-id="'+bookID+'"]').parent('td').html('<span class="cancel-label">-</span>');
 				}, 1000 );
+			}
+        });
+	});
+
+	// calendar
+	$('#book_date').on( 'change', function(event){
+		event.preventDefault();
+		var book_date = $(this).val();
+		$.ajax({
+            type: "POST",
+            url: "ajax-calendar-booking.php",
+			data: "book_date=" + book_date,
+            success: function(data){
+				var obj = JSON.parse(data);
+				console.log(obj);
+				$('#fare').text('-');
+				if( obj == '' ) {
+					$('#seat-list li').each(function(i){
+						i=i+1;
+						$(this).html('<button type="button" value="S'+[i]+'">S'+[i]+'</button>');
+					});
+				} else {
+					$('#seat-list li').each(function(i){
+						i=i+1;
+						if( obj.includes( 'S'+[i] ) ) {
+							$(this).html('<button class="notavailable" disabled>S'+[i]+'</button>');
+						} else {
+							$(this).html('<button type="button" value="S'+[i]+'">S'+[i]+'</button>');
+						}
+					});
+				}
 			}
         });
 	});

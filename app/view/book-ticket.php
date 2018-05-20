@@ -45,7 +45,7 @@ $error_message = '';
 					</div>
 					<div id="reservation-info">
 						<label for="book_date">Date:</label>
-						<input id="book_date" type="date" name="date" max="<?php echo date( "Y-m-j", time() ); ?>" min="<?php echo date( "Y-m-j", time() ); ?>" value="<?php echo date( "Y-m-j", time() ); ?>" />
+						<input id="book_date" type="date" name="date" min="<?php echo date( "Y-m-j", time() ); ?>" value="<?php echo date( "Y-m-j", time() ); ?>" />
 
 						<label for="destination">Destination:</label>
 						<select id="destination" name="destination">
