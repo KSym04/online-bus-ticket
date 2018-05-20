@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2018 at 05:51 PM
+-- Generation Time: May 20, 2018 at 08:41 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -42,12 +42,8 @@ CREATE TABLE `obt_booking` (
 --
 
 INSERT INTO `obt_booking` (`ticket_id`, `user_id`, `book_date`, `fare`, `seat_num`, `status`) VALUES
-(114, 3, '2018-05-19', 560, 'S1,S2,S3,S4', 'Cancelled'),
-(115, 3, '2018-05-19', 560, 'S5,S6,S7,S8', 'On Hold'),
-(116, 3, '2018-05-19', 700, 'S29,S30,S31,S32,S33', 'Paid'),
-(117, 3, '2018-05-19', 280, 'S13,S14', 'On Hold'),
-(118, 3, '2018-05-19', 560, 'S1,S2,S3,S4', 'On Hold'),
-(119, 3, '2018-05-19', 560, 'S25,S26,S27,S28', 'On Hold');
+(143, 3, '2018-05-31', 560, 'S1,S25,S26,S33', 'On Hold'),
+(144, 3, '2018-05-21', 1260, 'S1,S3,S5,S10,S17,S24,S29,S30,S32', 'On Hold');
 
 -- --------------------------------------------------------
 
@@ -72,7 +68,8 @@ CREATE TABLE `obt_users` (
 
 INSERT INTO `obt_users` (`user_id`, `user_name`, `user_fname`, `user_lname`, `user_password`, `user_email`, `date_created`, `user_permission`) VALUES
 (3, 'roy', 'Roydan', 'Saludo', '4297f44b13955235245', 'kahitano@gmail.com', '2018-05-14 23:15:52', 0),
-(4, 'kevin', 'Kevine', 'Pogi', '4297f44b13955235245', 'test@mail.com', '2018-05-15 00:56:24', 0);
+(4, 'kevin', 'Kevine', 'Pogi', '4297f44b13955235245', 'test@mail.com', '2018-05-15 00:56:24', 0),
+(5, 'admin', 'Administrator', 'Bossing', '4297f44b13955235245', 'bossabos@mail.com', '2018-05-14 23:15:52', 1);
 
 --
 -- Indexes for dumped tables
@@ -98,13 +95,13 @@ ALTER TABLE `obt_users`
 -- AUTO_INCREMENT for table `obt_booking`
 --
 ALTER TABLE `obt_booking`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT for table `obt_users`
 --
 ALTER TABLE `obt_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
