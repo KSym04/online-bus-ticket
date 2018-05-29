@@ -4,7 +4,7 @@
 require( 'app/config.php' );
 
 // Pass data here via Ajax.
-if( !empty( $_COOKIE['user_id'] ) && $_COOKIE['user_permission'] == 1 ) {
+if( ! empty( $_COOKIE['user_id'] ) ) {
 
 	$ticket_id = $_POST['book_id'];
 
