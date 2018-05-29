@@ -31,7 +31,7 @@ $error_message = '';
 								$seat = 1;
 								while( $seat <= 33 ) {
 									$seat_rendered =  'S' . $seat;
-									if ( in_array( $seat_rendered, $closed_seat, true) ) {
+									if ( in_array( $seat_rendered, $closed_seat, true ) ) {
 										echo '<li><button class="notavailable" disabled>'.$seat_rendered.'</button></li>';
 									} else {
 										echo '<li><button type="button" value="'.$seat_rendered.'">'.$seat_rendered.'</button></li>';

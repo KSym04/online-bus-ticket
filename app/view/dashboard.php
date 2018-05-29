@@ -48,7 +48,11 @@
 
 									if( $row['status'] == 'On Hold' ) {
 										echo '<td id="status_id'.$row['ticket_id'].'"><span class="warning-label">' . $row['status'] . '<span></td>';
-										echo '<td id="payment_id'.$row['ticket_id'].'"><a href="#" class="btn-pay-now" '.$pay_status.'>Pay Now</a></td>';
+										if( $_COOKIE['user_permission'] == 0 ) {
+											echo '<td id="payment_id'.$row['ticket_id'].'"><a href="#" class="btn-pay-now" '.$pay_status.'>Pay Now</a><a href="#" data-book-id="'.$row['ticket_id'].'" class="btn-cancel-now">Cancel</a></td>';
+										} else {
+											echo '<td></td>';
+										}
 									}
 
 									if( $row['status'] == 'Cancelled' ) {
